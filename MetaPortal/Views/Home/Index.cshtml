@@ -1,0 +1,28 @@
+﻿@model MetaPortal.ViewModels.HomeIndexViewModel
+
+@{
+    ViewBag.Title = "Home Page";    
+}
+
+<h1>All Stock Announcements</h1>
+<table>
+    @foreach (var restaurant in Model.Restaurants)
+    {
+        <tr>
+            <td>@restaurant.Id</td>
+            <td>@restaurant.Name</td>
+            <td>    </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@restaurant.Id">View</a>
+            </td>
+        </tr>
+    }
+</table>
+<p></p>
+<a asp-action="Create">New Stock Announcement</a>
+<p></p>
+
+@section footer
+{
+    @Model.CurrentMessage
+}
